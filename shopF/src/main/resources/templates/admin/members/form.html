@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<div layout:fragment="content">
+<head>
+    <title>Member Form</title>
+</head>
+<body>
+<h1>Member Form</h1>
+<form th:action="@{|/templates/admin/members|}" th:object="${member}" method="post">
+    <div>
+        <label>Username</label>
+        <input type="text" th:field="*{member.name}" />
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" th:field="*{member.email}" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" th:field="*{member.password}" />
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+<a href="/admin/members">Back to List</a>
+</body>
+</html>
